@@ -8,3 +8,5 @@ storybook-static
 dist
 storybook-static
 .tokens
+
+.DS_Store
