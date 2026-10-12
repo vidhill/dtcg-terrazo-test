@@ -13,9 +13,10 @@
   },
   "dependencies": {
     "@repo/normalize-tokens": "workspace:*",
+    "@repo/swatchbook-components": "workspace:*",
     "@unpunnyfuns/swatchbook-addon": "^2.2.0",
     "@unpunnyfuns/swatchbook-core": "^2.2.0",
-    "react": "^19.3.0",
+    "react": "catalog:",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
@@ -25,13 +26,13 @@
     "@terrazzo/cli": "catalog:",
     "@terrazzo/plugin-css": "catalog:",
     "@types/node": "^26.6.4",
-    "@types/react": "^19.3.0",
+    "@types/react": "catalog:",
     "@types/react-dom": "^19.3.0",
-    "@unpunnyfuns/swatchbook-blocks": "^2.2.0",
+    "@unpunnyfuns/swatchbook-blocks": "catalog:",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^10.0.6",
     "storybook": "^10.6.1",
-    "typescript": "^7.0.2",
+    "typescript": "catalog:",
     "vite": "^7.3.6"
   }
 }
