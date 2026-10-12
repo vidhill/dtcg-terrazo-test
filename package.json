@@ -1,0 +1,28 @@
+{
+  "name": "terrazzo-storybook-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "scripts": {
+    "tokens": "pnpm --filter terrazzo-storybook-demo tokens",
+    "tokens:watch": "pnpm --filter terrazzo-storybook-demo tokens:watch",
+    "dev": "pnpm --filter terrazzo-storybook-demo storybook",
+    "build": "pnpm --filter terrazzo-storybook-demo build-storybook",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.3.6",
+      "rollup": "4.60.0",
+      "cac": "6.7.14",
+      "baseline-browser-mapping": "2.11.25",
+      "electron-to-chromium": "1.5.433",
+      "node-releases": "2.0.56",
+      "update-browserslist-db": "1.3.3"
+    }
+  }
+}

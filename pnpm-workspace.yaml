@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - packages/*
+
+catalog:
+  "@humanwhocodes/momoa": ^3.3.13
+  "@terrazzo/cli": ^2.7.1
+  "@terrazzo/parser": ^2.7.1
+  "@terrazzo/plugin-css": ^2.7.1
