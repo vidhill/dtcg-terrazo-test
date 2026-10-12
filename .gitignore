@@ -1,0 +1,10 @@
+node_modules
+storybook-static
+.swatchbook
+*.tsbuildinfo
+
+# SDD scratch (internal tooling; not part of the example)
+.superpowers
+dist
+storybook-static
+.tokens
