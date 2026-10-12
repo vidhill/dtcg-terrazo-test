@@ -1,0 +1,33 @@
+[11:54:26.334] [INFO] storybook v10.6.1
+[11:54:27.453] [DEBUG] Getting package.json info for /Users/david.hill/Work/tests/terrazo-storybook/apps/storybook/package.json...
+[11:54:27.600] [ERROR] [38;2;241;97;97mSB_CORE-SERVER_0002 (CriticalPresetLoadError): Storybook failed to load the following preset: @storybook/react-vite/preset.
+
+Please check whether your setup is correct, the Storybook dependencies (and their peer dependencies) are installed correctly and there are no package version clashes.
+
+If you believe this is a bug, please open an issue on Github.
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@storybook/react-vite' imported from /Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/_node-chunks/chunk-563U7QZ2.js
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:301:9)
+    at packageResolve (node:internal/modules/esm/resolve:764:81)
+    at moduleResolve (node:internal/modules/esm/resolve:855:18)
+    at defaultResolve (node:internal/modules/esm/resolve:988:11)
+    at nextResolve (node:internal/modules/esm/hooks:769:28)
+    at AsyncLoaderHooksOnLoaderHookWorker.resolve (node:internal/modules/esm/hooks:265:30)
+    at MessagePort.handleMessage (node:internal/modules/esm/worker:251:24)
+    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:843:20)
+    at MessagePort.<anonymous> (node:internal/per_context/messageport:23:28)
+
+More info: 
+[39m
+    at loadPreset (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/_node-chunks/chunk-A5M3SXLF.js:13257:13)
+    at async Promise.all (index 0)
+    at async loadPresets (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/_node-chunks/chunk-A5M3SXLF.js:13266:73)
+    at async getPresets (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/_node-chunks/chunk-A5M3SXLF.js:13297:23)
+    at async buildDevStandalone (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/core-server/index.js:9254:52)
+    at async withTelemetry (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/_node-chunks/chunk-IRB26IIA.js:142:12)
+    at async dev (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/bin/core.js:4877:3)
+    at async _Command.<anonymous> (file:///Users/david.hill/Work/tests/terrazo-storybook/node_modules/.pnpm/storybook@10.6.1_@types+react@19.3.0_react@19.3.0/node_modules/storybook/dist/bin/core.js:4985:3)
+[11:54:27.603] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[12:03:14.856] [PROMPT] Would you like to send anonymous crash reports to improve Storybook and fix bugs faster? {"choice":false}
+[12:03:14.860] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry

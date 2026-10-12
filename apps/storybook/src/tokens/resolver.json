@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.designtokens.org/TR/2025.10/resolver/",
+  "version": "2025.10",
+  "name": "swatchbook-example",
+  "description": "Minimal two-axis DTCG set for the swatchbook consumer example.",
+  "sets": {
+    "tokens": {
+      "description": "Flat DTCG tokens grouped by $type.",
+      "sources": [{ "$ref": "./base.tokens.json" }]
+    }
+  },
+  "modifiers": {},
+  "resolutionOrder": [{ "$ref": "#/sets/tokens" }]
+}

@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorPalette, TokenTable, TokenDetail, DimensionScale, GradientPalette, FontFamilyPreview } from '@unpunnyfuns/swatchbook-addon';
+import { MyFontScale, BorderRadius } from './custom-components';
+
+<Meta title="Tokens/Overview" />
+
+# Design tokens
+
+These sections render the token set with swatchbook's [doc blocks](https://unpunnyfuns.github.io/swatchbook/reference/blocks/). Flip `mode` and `brand` in the [toolbar](https://unpunnyfuns.github.io/swatchbook/concepts/axes/); every block below reacts.
+
+## Colors
+
+<ColorPalette filter="color.**" />
+
+## Font sizes
+
+<MyFontScale filter="font.size.**" />
+
+## Font Family
+
+<FontFamilyPreview filter="font.family.**" />
+
+## Border radius
+
+<BorderRadius filter="border.radius.**" />
+
+## Gradient
+<GradientPalette filter="custom-gradient.**" />
+
+## All tokens
+
+<TokenTable filter="**" />
+
+## A single token
+
+<TokenDetail path="color.primary" />

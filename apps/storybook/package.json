@@ -1,0 +1,37 @@
+{
+  "name": "terrazzo-storybook-demo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tokens:normalize": "normalize-tokens src/tokens .tokens",
+    "tokens:watch": "chokidar \"src/tokens/**/*\" --initial -c \"pnpm tokens:normalize\"",
+    "tokens": "pnpm tokens:normalize && tz build",
+    "storybook": "concurrently -k -n tokens,storybook \"pnpm tokens:watch\" \"storybook dev -p 6006 --no-open\"",
+    "build-storybook": "pnpm tokens:normalize && storybook build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/normalize-tokens": "workspace:*",
+    "@unpunnyfuns/swatchbook-addon": "^2.2.0",
+    "@unpunnyfuns/swatchbook-core": "^2.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "@terrazzo/cli": "catalog:",
+    "@terrazzo/plugin-css": "catalog:",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@unpunnyfuns/swatchbook-blocks": "^2.2.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^10.0.6",
+    "storybook": "^10.6.1",
+    "typescript": "^7.0.2",
+    "vite": "^7.3.6"
+  }
+}

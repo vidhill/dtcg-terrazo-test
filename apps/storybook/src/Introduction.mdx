@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# swatchbook example
+
+A working [swatchbook](https://unpunnyfuns.github.io/swatchbook/) setup in Storybook,.
+
+## The token set
+
+Two axes drive everything: **mode** (Light / Dark) and **brand** (A / B). Flip them in the [toolbar](https://unpunnyfuns.github.io/swatchbook/concepts/axes/) and every block on every page reacts.
+
+## Where to look
+
+- **Tokens / Overview** shows your colours, dimensions, and typography rendered straight from the DTCG tokens.
+- **Components / Button** is a real component styled from tokens through the [`useToken`](https://unpunnyfuns.github.io/swatchbook/reference/addon/) hook.
+
+## Run it
+
+```sh
+npm install
+npm run storybook
+```
+
+The tokens live in `src/tokens/`; the addon is wired in `.storybook/main.ts` and `.storybook/preview.ts`. Replace the tokens with your own to make this your project.
