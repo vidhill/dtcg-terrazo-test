@@ -26,21 +26,6 @@
     }
   },
 
-  "text": {
-    "font": {
-      "$type": "fontFamily",
-      "inter": {
-        "$value": ["Inter Variable", "sans-serif"]
-      },
-      "open-sans": {
-        "$value": ["Open Sans Variable", "sans-serif"]
-      },
-      "libre-baskerville": {
-        "$value": ["Libre Baskerville", "serif"]
-      }
-    }
-  },
-
   "font": {
     "family": {
       "$type": "fontFamily",
