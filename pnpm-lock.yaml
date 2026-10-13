@@ -58,6 +58,9 @@ importers:
       '@repo/swatchbook-components':
         specifier: workspace:*
         version: link:../../packages/swatchbook-components
+      '@repo/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       '@unpunnyfuns/swatchbook-addon':
         specifier: ^2.2.0
         version: 2.2.0(@humanwhocodes/momoa@3.3.13)(@storybook/react-vite@10.6.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(rollup@4.60.0)(storybook@10.6.1(@types/react@19.3.0)(react@19.3.0))(typescript@7.0.2)(vite@7.3.6(@types/node@26.6.4)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.1)))(@terrazzo/cli@2.7.1(@types/node@26.6.4)(jiti@2.7.0)(lightningcss@1.33.0))(@terrazzo/parser@2.7.1(yaml-to-momoa@0.1.0))(@terrazzo/plugin-css@2.7.1(@terrazzo/cli@2.7.1(@types/node@26.6.4)(jiti@2.7.0)(lightningcss@1.33.0))(@terrazzo/parser@2.7.1(yaml-to-momoa@0.1.0)))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(storybook@10.6.1(@types/react@19.3.0)(react@19.3.0))(vite@7.3.6(@types/node@26.6.4)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.1))(yaml-to-momoa@0.1.0)
@@ -125,6 +128,9 @@ importers:
       '@repo/token-transforms':
         specifier: workspace:*
         version: link:../../packages/token-transforms
+      '@repo/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       '@terrazzo/parser':
         specifier: 'catalog:'
         version: 2.7.1(yaml-to-momoa@0.1.0)
@@ -228,6 +234,8 @@ importers:
       vitest:
         specifier: ^5.0.3
         version: 5.0.3(@types/node@26.6.4)(vite@7.3.6(@types/node@26.6.4)(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.1))
+
+  packages/tokens: {}
 
   packages/tsconfig: {}
 
