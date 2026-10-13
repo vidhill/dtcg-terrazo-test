@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Button } from "./button";
+import { GradientCard } from ".";
 
 const meta = {
-  title: "Components/Button",
-  component: Button,
-  args: {
-    children: "Hello World",
-  },
-} satisfies Meta<typeof Button>;
+  title: "Components/GradientCard",
+  component: GradientCard,
+  args: {},
+} satisfies Meta<typeof GradientCard>;
 
 const Default: StoryObj<typeof meta> = {};
 

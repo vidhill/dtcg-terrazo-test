@@ -1,0 +1,6 @@
+.card {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(90deg, var(--custom-gradient-1));
+  border-radius: var(--border-radius-3);
+}
