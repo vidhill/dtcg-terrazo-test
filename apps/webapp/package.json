@@ -15,6 +15,7 @@
     "@repo/normalize-tokens": "workspace:*",
     "@humanwhocodes/momoa": "catalog:",
     "@repo/token-transforms": "workspace:*",
+    "@repo/tokens": "workspace:*",
     "@terrazzo/plugin-css": "catalog:",
     "@terrazzo/parser": "catalog:"
   },

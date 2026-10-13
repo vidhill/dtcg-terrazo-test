@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 
 import { parseTransformTokensCSS } from "./parse-transform-tokens.ts";
+import tokensUrl from "@repo/tokens/base.tokens.json?url";
 
 async function main() {
   const rootElement = document.getElementById("root");
@@ -11,10 +12,12 @@ async function main() {
     throw new Error("No root element");
   }
 
-  await parseTransformTokensCSS("./tokens.json").then((cssText) => {
+  await parseTransformTokensCSS(tokensUrl).then((cssText) => {
+    // create style element to contain css
     const styleElem = document.createElement("style");
     styleElem.textContent = cssText;
 
+    // attach element to head
     document.head.appendChild(styleElem);
   });
 
