@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@unpunnyfuns/swatchbook-blocks": "catalog:"
+    "@unpunnyfuns/swatchbook-blocks": "catalog:",
+    "@humanwhocodes/momoa": "catalog:"
   },
   "peerDependencies": {
     "react": "catalog:"
