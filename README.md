@@ -20,7 +20,7 @@ pnpm install
 pnpm dev
 ```
 
-Storybook runs at http://localhost:6006 and re-normalizes tokens whenever files in `apps/storybook/src/tokens` change.
+Storybook runs at http://localhost:6006 and re-normalizes tokens whenever files in `packages/tokens/src` change.
 
 ## Scripts
 
@@ -40,11 +40,12 @@ Run from the repository root:
 ```
 apps/
   storybook/                  Storybook app (terrazzo-storybook-demo)
-    src/tokens/               Authored tokens + DTCG resolver
     src/*.mdx, Button.*       Docs pages and example component
     terrazzo.config.ts        Terrazzo CSS build
     swatchbook.config.ts      Swatchbook config (reads .tokens/resolver.json)
+  webapp/                     React + Vite demo that parses tokens and injects CSS at runtime (see apps/webapp/README.md)
 packages/
+  tokens/                     Shared DTCG tokens + resolver (used by Storybook and the webapp)
   normalize-tokens/           CLI/library: applies transforms and writes normalized DTCG to .tokens
   token-transforms/           Terrazzo transform visitors (e.g. shorthand → DTCG objects), tested with Vitest
   swatchbook-components/      Custom React swatch blocks (colour, border radius, font scale)
@@ -53,7 +54,17 @@ packages/
 
 ## How it works
 
-1. Tokens are authored in `apps/storybook/src/tokens/` (`base.tokens.json` plus `resolver.json`).
+1. Tokens are authored in `packages/tokens/src/` (`base.tokens.json` plus `resolver.json`).
 2. `normalize-tokens` parses them with `@terrazzo/parser`, applies the visitors from `token-transforms` (for example `"14px"` → `{ value: 14, unit: "px" }`, and nested/hex colours → DTCG colour objects), and writes the result to `apps/storybook/.tokens/`.
    Neither Terrazzo's CLI nor Swatchbook exposes Terrazzo's `transform` option, so this step is done up front.
 3. Both `tz build` and Swatchbook read from `.tokens/resolver.json`.
+
+## Webapp demo
+
+`apps/webapp` (`@repo/react-app`) is a React + Vite app showing a way to consume the tokens: **at runtime in the browser**
+
+```sh
+pnpm --filter @repo/react-app dev       # Vite dev server
+```
+
+See [`apps/webapp/README.md`](apps/webapp/README.md) for additional details.
