@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./base.tokens.json": "./src/base.tokens.json",
+    "./happy.tokens.json": "./src/happy.tokens.json",
     "./resolver.json": "./src/resolver.json"
   }
 }
