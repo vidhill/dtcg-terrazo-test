@@ -17,10 +17,10 @@ const FILE_NAME = "tokens.css";
 async function parseTransformTokensCSS(...urls: string[]) {
   const fileUrls = urls.map((u) => new URL(u, location.href));
 
-  const filePromises = fileUrls.map((filename) => {
-    return fetchTokensJSON(filename).then((srcContent) => {
+  const filePromises = fileUrls.map((url) => {
+    return fetchTokensJSON(url).then((srcContent) => {
       return {
-        filename,
+        filename: url,
         src: srcContent,
       };
     });
