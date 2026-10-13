@@ -1,13 +1,15 @@
-import { defineMain } from '@storybook/react-vite/node';
+import { defineMain } from "@storybook/react-vite/node";
 
 export default defineMain({
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(ts|tsx)'],
-  framework: '@storybook/react-vite',
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(ts|tsx)"],
+  framework: "@storybook/react-vite",
   addons: [
-    '@storybook/addon-docs',
+    "@storybook/addon-docs",
     {
-      name: '@unpunnyfuns/swatchbook-addon',
-      options: { configPath: '../swatchbook.config.ts' },
+      name: "@unpunnyfuns/swatchbook-addon",
+      options: {
+        configPath: "../swatchbook.config.ts",
+      },
     },
   ],
 });

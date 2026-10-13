@@ -8,6 +8,9 @@ catalog:
   "@terrazzo/parser": ^2.7.1
   "@terrazzo/plugin-css": ^2.7.1
   "@types/react": ^19.3.0
+  "@types/react-dom": "^19.3.0"
   "@unpunnyfuns/swatchbook-blocks": ^2.2.0
   react: ^19.3.0
+  "react-dom": "^19.3.0"
   typescript: ^7.0.2
+  "vite": "^7.3.6"

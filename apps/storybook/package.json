@@ -17,7 +17,7 @@
     "@unpunnyfuns/swatchbook-addon": "^2.2.0",
     "@unpunnyfuns/swatchbook-core": "^2.2.0",
     "react": "catalog:",
-    "react-dom": "^19.3.0"
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@repo/tsconfig": "workspace:*",
@@ -27,12 +27,12 @@
     "@terrazzo/plugin-css": "catalog:",
     "@types/node": "^26.6.4",
     "@types/react": "catalog:",
-    "@types/react-dom": "^19.3.0",
+    "@types/react-dom": "catalog:",
     "@unpunnyfuns/swatchbook-blocks": "catalog:",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^10.0.6",
     "storybook": "^10.6.1",
     "typescript": "catalog:",
-    "vite": "^7.3.6"
+    "vite": "catalog:"
   }
 }
