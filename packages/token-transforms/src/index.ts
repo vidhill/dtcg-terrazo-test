@@ -5,7 +5,7 @@ import {
   convertNestedColors,
   hexToColorObject,
   toDimensionObject,
-} from "./transformers";
+} from "./transformers/index.ts";
 
 type Visitor = NonNullable<TransformVisitors["token"]>;
 type TokenNode = ObjectNode;
