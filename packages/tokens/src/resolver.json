@@ -9,6 +9,18 @@
       "sources": [{ "$ref": "./base.tokens.json" }]
     }
   },
-  "modifiers": {},
-  "resolutionOrder": [{ "$ref": "#/sets/tokens" }]
+  "modifiers": {
+    "theme": {
+      "description": "Colour theme applied on top of the base tokens.",
+      "contexts": {
+        "default": [],
+        "happy": [{ "$ref": "./happy.tokens.json" }]
+      },
+      "default": "default"
+    }
+  },
+  "resolutionOrder": [
+    { "$ref": "#/sets/tokens" },
+    { "$ref": "#/modifiers/theme" }
+  ]
 }

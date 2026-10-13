@@ -15,6 +15,7 @@
     "@repo/normalize-tokens": "workspace:*",
     "@repo/swatchbook-components": "workspace:*",
     "@repo/tokens": "workspace:*",
+    "@repo/react-app": "workspace:*",
     "@unpunnyfuns/swatchbook-addon": "^2.2.0",
     "@unpunnyfuns/swatchbook-core": "^2.2.0",
     "react": "catalog:",

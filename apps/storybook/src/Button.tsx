@@ -1,6 +1,5 @@
 import type { ReactElement } from "react";
 import { useToken } from "@unpunnyfuns/swatchbook-addon/hooks";
-import { DimensionScale } from "@unpunnyfuns/swatchbook-addon";
 
 export interface ButtonProps {
   label: string;
@@ -13,7 +12,6 @@ export function Button({ label }: ButtonProps): ReactElement {
 
   return (
     <>
-      <DimensionScale></DimensionScale>
       <button
         type="button"
         data-testid="example-button"

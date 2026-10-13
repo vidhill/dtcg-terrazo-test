@@ -1,3 +1,4 @@
+import "@repo/react-app/fonts.ts";
 import addonDocs from "@storybook/addon-docs";
 import { definePreview } from "@storybook/react-vite";
 

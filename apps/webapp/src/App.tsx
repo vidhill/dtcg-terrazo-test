@@ -1,3 +1,4 @@
+import "./fonts";
 import { Button } from "./components/button";
 
 function App() {

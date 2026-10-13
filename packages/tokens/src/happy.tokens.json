@@ -1,0 +1,23 @@
+{
+  "color": {
+    "$type": "color",
+    "primary": {
+      "$value": "#0073e6"
+    },
+    "secondary": {
+      "$value": "#444"
+    },
+    "tertiary": {
+      "$value": "#1f2080"
+    },
+
+    "text": {
+      "$type": "color",
+      "primary": {
+        "selected": {
+          "$value": "#004992"
+        }
+      }
+    }
+  }
+}
