@@ -7,16 +7,26 @@ import pluginCSS from "@terrazzo/plugin-css";
 const FILE_NAME = "tokens.css";
 
 /**
- * Fetches a design tokens JSON file, runs it through the Terrazzo parser with
+ * Fetches design tokens JSON file(s), runs them through the Terrazzo parser with
  * the custom token transforms, and builds the CSS output in memory.
  *
- * @param url
+ * @param urls One tokens file, or several; later files override earlier ones
+ * (e.g. a base file followed by a theme file).
  * @returns The generated CSS string, or `null` if no string output was produced for the expected file.
  */
-async function parseTransformTokensCSS(url: string) {
-  const fileUrl = new URL(url, location.href);
+async function parseTransformTokensCSS(...urls: string[]) {
+  const fileUrls = urls.map((u) => new URL(u, location.href));
 
-  const srcJSON = await fetchTokensJSON(fileUrl);
+  const filePromises = fileUrls.map((filename) => {
+    return fetchTokensJSON(filename).then((srcContent) => {
+      return {
+        filename,
+        src: srcContent,
+      };
+    });
+  });
+
+  const inputs = await Promise.all(filePromises);
 
   const config = defineConfig(
     {
@@ -32,18 +42,10 @@ async function parseTransformTokensCSS(url: string) {
     },
   );
 
-  const { tokens, sources, resolver } = await parse(
-    [
-      {
-        filename: fileUrl,
-        src: srcJSON,
-      },
-    ],
-    {
-      config,
-      transform: createTransformVisitors(),
-    },
-  );
+  const { tokens, sources, resolver } = await parse(inputs, {
+    config,
+    transform: createTransformVisitors(),
+  });
 
   const buildResult = await build(tokens, {
     sources,
