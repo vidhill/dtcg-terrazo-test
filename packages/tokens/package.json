@@ -3,9 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "tokens:normalize": "normalize-tokens @repo/tokens src src/.tokens"
+  },
   "exports": {
+    "./package.json": "./package.json",
     "./base.tokens.json": "./src/base.tokens.json",
     "./happy.tokens.json": "./src/happy.tokens.json",
     "./resolver.json": "./src/resolver.json"
+  },
+  "devDependencies": {
+    "@repo/normalize-tokens": "workspace:*"
   }
 }
