@@ -1,15 +1,13 @@
 import { parse } from "@humanwhocodes/momoa";
-import type { ValueNode } from "@humanwhocodes/momoa";
+import type { MemberNode, StringNode, ValueNode } from "@humanwhocodes/momoa";
+import { isHexLike } from "../../utils";
 
 /**
  * `#rgb` | `#rgba` | `#rrggbb` | `#rrggbbaa`
  * @returns DTCG colour object
  */
 function hexToColorObject(hex: string) {
-  let digits = hex.slice(1);
-  if (digits.length === 3 || digits.length === 4) {
-    digits = [...digits].map((c) => c + c).join("");
-  }
+  const digits = expandHexDigits(hex);
   if (!/^([0-9a-f]{6}|[0-9a-f]{8})$/i.test(digits)) {
     return undefined;
   }
@@ -26,6 +24,14 @@ function hexToColorObject(hex: string) {
   } as const;
 }
 
+function expandHexDigits(hex: string) {
+  const digits = hex.slice(1);
+  if (digits.length === 3 || digits.length === 4) {
+    return [...digits].map((c) => c + c).join("");
+  }
+  return digits;
+}
+
 function toValueNode(value: unknown): ValueNode {
   return parse(JSON.stringify(value)).body;
 }
@@ -39,45 +45,52 @@ function toValueNode(value: unknown): ValueNode {
  */
 function convertNestedColors(node: ValueNode): ValueNode {
   if (node.type === "Array") {
-    let changed = false;
     const elements = node.elements.map((el) => {
       const value = convertNestedColors(el.value);
       if (value === el.value) {
         return el;
       }
-      changed = true;
       return { ...el, value };
     });
-    return changed ? { ...node, elements } : node;
+    return { ...node, elements };
   }
 
   if (node.type === "Object") {
-    let changed = false;
     const members = node.members.map((m) => {
-      let value = m.value;
-      if (
-        m.name.type === "String" &&
-        m.name.value === "color" &&
-        m.value.type === "String" &&
-        m.value.value.startsWith("#")
-      ) {
-        const converted = hexToColorObject(m.value.value);
-        if (converted) {
-          value = toValueNode(converted);
+      function getValue() {
+        if (isHexColorMember(m)) {
+          const converted = hexToColorObject(m.value.value);
+          if (converted) {
+            return toValueNode(converted);
+          }
+        } else {
+          return convertNestedColors(m.value);
         }
-      } else {
-        value = convertNestedColors(m.value);
+        return m.value;
       }
+
+      const value = getValue();
+
       if (value === m.value) {
         return m;
       }
-      changed = true;
       return { ...m, value };
     });
-    return changed ? { ...node, members } : node;
+    return { ...node, members };
   }
 
   return node;
+}
+
+function isHexColorMember(
+  member: MemberNode,
+): member is MemberNode & { value: StringNode } {
+  return (
+    member.name.type === "String" &&
+    member.name.value === "color" &&
+    member.value.type === "String" &&
+    isHexLike(member.value.value)
+  );
 }
 
 export { convertNestedColors, hexToColorObject };

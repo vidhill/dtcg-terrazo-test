@@ -6,6 +6,7 @@ import {
   hexToColorObject,
   toDimensionObject,
 } from "./transformers/index.ts";
+import { isHexLike } from "./utils.ts";
 
 type Visitor = NonNullable<TransformVisitors["token"]>;
 type TokenNode = ObjectNode;
@@ -97,7 +98,7 @@ function getConverted(type: string | undefined, value: string) {
     return toDimensionObject(value);
   }
 
-  if (value.startsWith("#")) {
+  if (isHexLike(value)) {
     return hexToColorObject(value);
   }
 

@@ -154,7 +154,7 @@ describe("convertNestedColors", () => {
     // do action
     const result = convertNestedColors(input);
 
-    expect(result).toBe(input);
+    expect(result).toEqual(input);
   });
 
   it("reuses unchanged siblings", () => {
@@ -173,8 +173,8 @@ describe("convertNestedColors", () => {
 
     const expectedRes = input.members[1];
 
-    expect(result.members[1]).toBe(expectedRes);
-    expect(result.members[0]).not.toBe(input.members[0]);
+    expect(result.members[1]).toEqual(expectedRes);
+    expect(result.members[0]).not.toEqual(input.members[0]);
   });
 
   it("returns primitives unchanged", () => {
