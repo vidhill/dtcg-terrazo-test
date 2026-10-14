@@ -65,9 +65,15 @@ function createTransformVisitors(): TransformVisitors {
       }
       return {
         ...node,
-        members: node.members.map((m) =>
-          m.value === value ? { ...m, value: converted } : m,
-        ),
+        members: node.members.map((m) => {
+          if (m.value === value) {
+            return {
+              ...m,
+              value: converted,
+            };
+          }
+          return m;
+        }),
       };
     }
     if (value?.type !== "String") {
