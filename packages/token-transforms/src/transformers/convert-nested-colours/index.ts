@@ -1,6 +1,6 @@
 import { parse } from "@humanwhocodes/momoa";
 import type { MemberNode, StringNode, ValueNode } from "@humanwhocodes/momoa";
-import { isHexLike } from "../../utils";
+import { isHexLike } from "../../utils.ts";
 
 /**
  * `#rgb` | `#rgba` | `#rrggbb` | `#rrggbbaa`
