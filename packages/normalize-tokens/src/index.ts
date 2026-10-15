@@ -23,17 +23,28 @@ async function normalizeTokens({
   outDir,
   cwd = process.cwd(),
 }: NormalizeTokensOptions) {
-  const files = (
-    await readdir(srcDir, { recursive: true, withFileTypes: true })
-  )
+  // Empty first so a nested outDir isn't picked up as source below.
+  await rm(outDir, { recursive: true, force: true });
+
+  const fileList = await readdir(srcDir, {
+    recursive: true,
+    withFileTypes: true,
+  });
+
+  const files = fileList
     .filter((e) => e.isFile() && e.name.endsWith(".json"))
     .map((e) => join(e.parentPath, e.name));
 
-  await rm(outDir, { recursive: true, force: true });
-
-  for (const file of files) {
+  const jobs = files.map((file) => {
     const rel = relative(srcDir, file);
-    const dest = join(outDir, rel);
+    return {
+      file,
+      rel,
+      dest: join(outDir, rel),
+    };
+  });
+
+  for (const { file, rel, dest } of jobs) {
     await mkdir(dirname(dest), {
       recursive: true,
     });
