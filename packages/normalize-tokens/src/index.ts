@@ -36,11 +36,11 @@ async function normalizeTokens({
     .map((e) => join(e.parentPath, e.name));
 
   const jobs = files.map((file) => {
-    const rel = relative(srcDir, file);
+    const relativePath = relative(srcDir, file);
     return {
       file,
-      rel,
-      dest: join(outDir, rel),
+      rel: relativePath,
+      dest: join(outDir, relativePath),
     };
   });
 
