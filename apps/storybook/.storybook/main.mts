@@ -4,16 +4,14 @@ import type { StorybookConfig } from "@storybook/react-vite";
 
 const require = createRequire(import.meta.url);
 
-const rwsPath = getAbsolutePath("@repo/react-app");
-
-console.log({ rwsPath, a: rwsPath + "/src/**/*.stories.@(js|jsx|mjs|ts|tsx)" });
+const appPath = getAbsolutePath("@repo/react-app");
 
 const config: StorybookConfig = {
   stories: [
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    rwsPath + "/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    rwsPath + "/src/**/*.mdx",
+    appPath + "/src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    appPath + "/src/**/*.mdx",
   ],
   addons: [
     "@storybook/addon-docs",
