@@ -1,8 +1,5 @@
 import type { ComponentProps, ReactElement } from "react";
-import type {
-  PresenterComponent,
-  PresenterProps,
-} from "@unpunnyfuns/swatchbook-blocks";
+import type { PresenterComponent, PresenterProps } from "@unpunnyfuns/swatchbook-blocks";
 import {
   DimensionSample,
   DimensionScale,
@@ -35,9 +32,7 @@ const fontScalePresenters = mergePresenters({
   dimension: FontSizeSample as PresenterComponent,
 });
 
-function BorderRadius(
-  props: ComponentProps<typeof DimensionScale>,
-): ReactElement {
+function BorderRadius(props: ComponentProps<typeof DimensionScale>): ReactElement {
   return (
     <PresenterContext.Provider value={fontScalePresenters}>
       <DimensionScale {...props} />
