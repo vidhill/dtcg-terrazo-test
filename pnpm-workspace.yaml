@@ -2,15 +2,27 @@ packages:
   - apps/*
   - packages/*
 
+# @repo/eslint-config declares its own eslint/prettier plugins as devDependencies.
+#
+# ESLint resolves plugins relative to the consuming app's .eslintrc, not the shared config's directory,
+# so pnpm's isolated node_modules leaves those unresolvable from apps/*.
+#
+# Hoisting them to the root node_modules makes them resolvable everywhere.
+publicHoistPattern:
+    - "*eslint*"
+    - "*prettier*"
+
 catalog:
   "@humanwhocodes/momoa": ^3.3.13
   "@terrazzo/cli": ^2.7.1
   "@terrazzo/parser": ^2.7.1
   "@terrazzo/plugin-css": ^2.7.1
+  prettier: ^3.6.2
+  eslint: "^9.33.0"
   "@types/react": ^19.3.0
   "@types/react-dom": "^19.3.0"
   "@unpunnyfuns/swatchbook-blocks": ^2.2.0
   react: ^19.3.0
   "react-dom": "^19.3.0"
-  typescript: ^7.0.2
+  typescript: ^6.0.3
   "vite": "^7.3.6"
