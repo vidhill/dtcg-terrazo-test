@@ -13,6 +13,8 @@
     "./resolver.json": "./src/resolver.json"
   },
   "devDependencies": {
-    "@repo/normalize-tokens": "workspace:*"
-  }
+    "@repo/normalize-tokens": "workspace:*",
+    "@repo/prettier-config": "workspace:*"
+  },
+  "prettier": "@repo/prettier-config"
 }

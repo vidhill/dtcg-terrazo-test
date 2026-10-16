@@ -7,7 +7,10 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm run lint:js && pnpm run typecheck",
+    "lint:js": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@unpunnyfuns/swatchbook-blocks": "catalog:",
@@ -17,9 +20,13 @@
     "react": "catalog:"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/react": "catalog:",
+    "eslint": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
-  }
+  },
+  "prettier": "@repo/prettier-config"
 }

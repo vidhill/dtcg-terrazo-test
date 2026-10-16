@@ -1,5 +1,6 @@
 import { parse } from "@humanwhocodes/momoa";
 import type { MemberNode, StringNode, ValueNode } from "@humanwhocodes/momoa";
+
 import { isHexLike } from "../../utils.ts";
 
 /**
@@ -82,9 +83,7 @@ function convertNestedColors(node: ValueNode): ValueNode {
   return node;
 }
 
-function isHexColorMember(
-  member: MemberNode,
-): member is MemberNode & { value: StringNode } {
+function isHexColorMember(member: MemberNode): member is MemberNode & { value: StringNode } {
   return (
     member.name.type === "String" &&
     member.name.value === "color" &&

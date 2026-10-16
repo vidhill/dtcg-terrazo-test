@@ -5,13 +5,18 @@ import type { ColorFormat } from "@unpunnyfuns/swatchbook-blocks";
  * string, or `{ value, unit }`) as a CSS length. Shared by the border and
  * shadow presenters, whose `$value` shapes both carry raw dimension fields.
  */
-export function formatLength(raw: unknown): string {
-  if (typeof raw === "number") return `${raw}px`;
-  if (typeof raw === "string") return raw;
+function formatLength(raw: unknown): string {
+  if (typeof raw === "number") {
+    return `${raw}px`;
+  }
+  if (typeof raw === "string") {
+    return raw;
+  }
   if (raw && typeof raw === "object") {
     const v = raw as { value?: unknown; unit?: unknown };
-    if (typeof v.value === "number" && typeof v.unit === "string")
+    if (typeof v.value === "number" && typeof v.unit === "string") {
       return `${v.value}${v.unit}`;
+    }
   }
   return "0px";
 }
@@ -23,8 +28,8 @@ export function formatLength(raw: unknown): string {
  * that one format so the swatch still paints; every other format
  * (rgb/hsl/oklch/hex) is already valid CSS.
  */
-export function cssColorFormat(
-  format: ColorFormat,
-): Exclude<ColorFormat, "raw"> {
+function cssColorFormat(format: ColorFormat): Exclude<ColorFormat, "raw"> {
   return format === "raw" ? "hex" : format;
 }
+
+export { formatLength, cssColorFormat };

@@ -5,6 +5,7 @@
 //   outDir     relative to the cwd (default: .tokens)
 import { createRequire } from "node:module";
 import { dirname, join, resolve } from "node:path";
+
 import { normalizeTokens } from "./index.ts";
 
 const [packageId, src = "src", out = ".tokens"] = process.argv.slice(2);

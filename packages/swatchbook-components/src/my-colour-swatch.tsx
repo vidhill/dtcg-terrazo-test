@@ -1,10 +1,11 @@
 import type { ReactElement } from "react";
 import type { PresenterProps } from "@unpunnyfuns/swatchbook-blocks";
 import { formatColor } from "@unpunnyfuns/swatchbook-blocks";
+
 import { cssColorFormat } from "@repo/swatchbook-components";
 
 /** Props for the {@link ColorSwatch} presenter. */
-export type ColorSwatchProps = PresenterProps<"color">;
+type ColorSwatchProps = PresenterProps<"color">;
 
 // Last dot-segment of a token path, used as the swatch's leaf label.
 function leafOf(path: string): string {
@@ -29,24 +30,15 @@ function MyColorSwatch(a: ColorSwatchProps): ReactElement {
   const match = cssVar?.match(re);
   const cssVarName = match?.[1] ?? cssVar;
 
-  const chipBackground =
-    cssVar ?? formatColor(token.$value, cssColorFormat(colorFormat)).value;
+  const chipBackground = cssVar ?? formatColor(token.$value, cssColorFormat(colorFormat)).value;
   const { value, outOfGamut } = formatColor(token.$value, colorFormat);
-  const label =
-    typeof options?.["label"] === "string" ? options["label"] : leafOf(path);
+  const label = typeof options?.["label"] === "string" ? options["label"] : leafOf(path);
   return (
     <div className="sb-color-swatch">
-      <div
-        className="sb-color-swatch__chip"
-        style={{ background: chipBackground }}
-        aria-hidden
-      />
+      <div className="sb-color-swatch__chip" style={{ background: chipBackground }} aria-hidden />
       <div className="sb-color-swatch__meta">
         <span className="sb-color-swatch__leaf">{label}</span>
-        <pre
-          style={{ textWrapMode: "wrap", fontSize: "0.6em" }}
-          className="sb-color-swatch__leaf"
-        >
+        <pre style={{ textWrapMode: "wrap", fontSize: "0.6em" }} className="sb-color-swatch__leaf">
           {cssVarName}
         </pre>
         <span className="sb-color-swatch__value">
@@ -68,3 +60,4 @@ function MyColorSwatch(a: ColorSwatchProps): ReactElement {
 }
 
 export { MyColorSwatch };
+export type { ColorSwatchProps };

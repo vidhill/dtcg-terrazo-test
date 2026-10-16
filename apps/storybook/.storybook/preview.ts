@@ -1,12 +1,9 @@
-import "@repo/react-app/fonts.ts";
 import addonDocs from "@storybook/addon-docs";
 import { definePreview } from "@storybook/react-vite";
-
-import swatchbookAddon, {
-  mergePresenters,
-} from "@unpunnyfuns/swatchbook-addon";
+import swatchbookAddon, { mergePresenters } from "@unpunnyfuns/swatchbook-addon";
 import type { PresenterComponent } from "@unpunnyfuns/swatchbook-blocks";
 
+import "@repo/react-app/fonts.ts";
 import { MyColorSwatch } from "@repo/swatchbook-components";
 
 export default definePreview({
