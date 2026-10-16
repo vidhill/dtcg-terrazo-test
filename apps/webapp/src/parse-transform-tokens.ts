@@ -1,8 +1,9 @@
 // theme/loadTokens.ts
 import type { OutputFile } from "@terrazzo/parser";
 import { defineConfig, parse, build } from "@terrazzo/parser";
-import { createTransformVisitors } from "@repo/token-transforms";
 import pluginCSS from "@terrazzo/plugin-css";
+
+import { createTransformVisitors } from "@repo/token-transforms";
 
 const FILE_NAME = "tokens.css";
 
@@ -54,13 +55,9 @@ async function parseTransformTokensCSS(...urls: string[]) {
   });
 
   // build() returns in-memory output files
-  const files = Array.isArray(buildResult)
-    ? buildResult
-    : buildResult.outputFiles;
+  const files = Array.isArray(buildResult) ? buildResult : buildResult.outputFiles;
 
-  const matchingFile: OutputFile | undefined = files.find(
-    (f) => f.filename === FILE_NAME,
-  );
+  const matchingFile: OutputFile | undefined = files.find((f) => f.filename === FILE_NAME);
 
   if (!matchingFile || typeof matchingFile.contents !== "string") {
     return null;

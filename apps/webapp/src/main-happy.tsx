@@ -1,11 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.tsx";
 
-import { parseTransformTokensCSS } from "./parse-transform-tokens.ts";
 import tokensUrl from "@repo/tokens/base.tokens.json?url";
 import happyTokensUrl from "@repo/tokens/happy.tokens.json?url";
+
+import "./index.css";
+import App from "./app.tsx";
+import { parseTransformTokensCSS } from "./parse-transform-tokens.ts";
 
 async function main() {
   const rootElement = document.getElementById("root");
