@@ -2,12 +2,14 @@
 // spec-compliant DTCG, which both `tz build` and swatchbook read. Neither
 // exposes Terrazzo's `transform` option, so the visitors are applied here via
 // parse().
-import { print } from "@humanwhocodes/momoa";
-import { createTransformVisitors } from "@repo/token-transforms";
-import { defineConfig, parse } from "@terrazzo/parser";
 import { cp, mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, relative } from "node:path";
 import { pathToFileURL } from "node:url";
+
+import { defineConfig, parse } from "@terrazzo/parser";
+import { print } from "@humanwhocodes/momoa";
+
+import { createTransformVisitors } from "@repo/token-transforms";
 
 type NormalizeTokensOptions = {
   /** Directory holding the authored `*.json` token files. */
@@ -18,11 +20,7 @@ type NormalizeTokensOptions = {
   cwd?: string;
 };
 
-async function normalizeTokens({
-  srcDir,
-  outDir,
-  cwd = process.cwd(),
-}: NormalizeTokensOptions) {
+async function normalizeTokens({ srcDir, outDir, cwd = process.cwd() }: NormalizeTokensOptions) {
   // Empty first so a nested outDir isn't picked up as source below.
   await rm(outDir, { recursive: true, force: true });
 
