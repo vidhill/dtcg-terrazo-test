@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@storybook/addon-docs": "^10.6.1",
     "@storybook/react-vite": "^10.6.1",
@@ -41,5 +42,6 @@
     "storybook": "^10.6.1",
     "typescript": "catalog:",
     "vite": "catalog:"
-  }
+  },
+  "prettier": "@repo/prettier-config"
 }

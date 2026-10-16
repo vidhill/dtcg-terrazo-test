@@ -21,10 +21,12 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/react": "catalog:",
     "eslint": "catalog:",
     "react": "catalog:",
     "typescript": "catalog:"
-  }
+  },
+  "prettier": "@repo/prettier-config"
 }
