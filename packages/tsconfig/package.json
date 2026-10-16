@@ -5,5 +5,14 @@
   "files": [
     "base.json",
     "react.json"
-  ]
+  ],
+  "scripts": {
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
+  "prettier": "@repo/prettier-config",
+  "devDependencies": {
+    "prettier": "catalog:",
+    "@repo/prettier-config": "workspace:*"
+  }
 }
