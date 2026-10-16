@@ -39,6 +39,8 @@ export default defineConfig(
       parserOptions: {
         projectService: {
           allowDefaultProject: [
+            "eslint.config.js",
+            "vite.config.ts",
             "vitest.config.ts",
             "terrazzo.config.ts",
             ".storybook/*.ts",
