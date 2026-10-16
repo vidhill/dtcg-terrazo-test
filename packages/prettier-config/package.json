@@ -1,0 +1,9 @@
+{
+  "name": "@repo/prettier-config",
+  "version": "1.5.3",
+  "private": true,
+  "main": "index.json",
+  "dependencies": {
+    "prettier": "catalog:"
+  }
+}
