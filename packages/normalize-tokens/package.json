@@ -10,7 +10,10 @@
     "normalize-tokens": "./src/cli.ts"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "pnpm run lint:js && pnpm run typecheck",
+    "lint:js": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@humanwhocodes/momoa": "catalog:",
@@ -18,8 +21,10 @@
     "@terrazzo/parser": "catalog:"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@types/node": "^26.6.4",
-    "typescript": "^7.0.2"
+    "eslint": "catalog:",
+    "typescript": "catalog:"
   }
 }
