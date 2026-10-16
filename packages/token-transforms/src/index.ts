@@ -1,20 +1,15 @@
 import { parse } from "@humanwhocodes/momoa";
 import type { ObjectNode } from "@humanwhocodes/momoa";
 import type { TransformVisitors } from "@terrazzo/parser";
-import {
-  convertNestedColors,
-  hexToColorObject,
-  toDimensionObject,
-} from "./transformers/index.ts";
+
+import { convertNestedColors, hexToColorObject, toDimensionObject } from "./transformers/index.ts";
 import { isHexLike } from "./utils.ts";
 
 type Visitor = NonNullable<TransformVisitors["token"]>;
 type TokenNode = ObjectNode;
 
 function getMember(node: TokenNode, name: string) {
-  return node.members.find(
-    (m) => m.name.type === "String" && m.name.value === name,
-  );
+  return node.members.find((m) => m.name.type === "String" && m.name.value === name);
 }
 
 function setMember(node: TokenNode, name: string, value: unknown) {
